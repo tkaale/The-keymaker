@@ -43,7 +43,22 @@ def abc_mirror(word):
         word_list.append(ALPHABET[changed_letter])
     return word_list
 
-print(abc_mirror('abcdefghijklm'))
+#print(abc_mirror('abcdefghijklm'))
+
+
+def create_matrix(word_1, word_2): #az, #abz
+    word_list = []
+    for letter in word_2:
+        word = []
+        shift = ALPHABET.index(letter)
+        for letter in word_1:
+            changed = shift_characters(letter, shift)
+            word.append(changed)
+        word_list.append(''.join(word))
+    return word_list
+
+print(create_matrix('az', 'abz'))
+
 
 
 
