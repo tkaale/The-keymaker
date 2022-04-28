@@ -1,4 +1,5 @@
-ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 def shift_characters(word, shift):
@@ -61,13 +62,22 @@ def create_matrix(word_1, word_2):  # az, #abz
 
 #print( create_matrix('mamas', 'papas'))
 
+
 def zig_zag_concatenate(list_of_words):
     coded_list = []
-    for i in range(len(list_of_words)):
-        coded_list.append(list_of_words[i][0])
-        coded_list.append(list_of_words[i][2])
-    for i in reversed(range(len(list_of_words))):
-        coded_list.append(list_of_words[i][1])
+    odd_even = []
+    number = 0
+    for letter in list_of_words[0]:
+        odd_even.append(number)
+        number += 1
+    for number in odd_even:
+        if number % 2 == 0:
+            for i in range(len(list_of_words)):
+                coded_list.append(list_of_words[i][number])
+        else:
+            for i in reversed(range(len(list_of_words))):
+                coded_list.append(list_of_words[i][number])
     return coded_list
 
-print(zig_zag_concatenate(['aaa', 'bbb', 'ccc', 'ddd']))
+
+print(zig_zag_concatenate(['aaaa', 'bbbb', 'cccc', 'dddd']))
