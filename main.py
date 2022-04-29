@@ -80,4 +80,11 @@ def zig_zag_concatenate(list_of_words):
     return coded_list
 
 
-print(zig_zag_concatenate(['aaaa', 'bbbb', 'cccc', 'dddd']))
+#print(zig_zag_concatenate(['aaaa', 'bbbb', 'cccc', 'dddd']))
+
+def rotate_right(word, n):
+    word = word[-n:] + word[:-n]
+    return word
+
+#print(rotate_right('hello', 2))
+
